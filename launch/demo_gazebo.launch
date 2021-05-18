@@ -1,5 +1,7 @@
 <launch>
 
+  <arg name="rviz_config" default="$(find reachy_moveit_config)/launch/moveit.rviz"/>
+
   <!-- By default, we do not start a database (it can be large) -->
   <arg name="db" default="false" />
   <!-- Allow user to specify database location -->
@@ -64,7 +66,7 @@
 
   <!-- Run Rviz and load the default config to see the state of the move_group node -->
   <include file="$(find reachy_moveit_config)/launch/moveit_rviz.launch">
-    <arg name="rviz_config" value="$(find reachy_moveit_config)/launch/moveit.rviz"/>
+    <arg name="rviz_config" value="$(arg rviz_config)"/>
     <arg name="debug" value="$(arg debug)"/>
   </include>
 
